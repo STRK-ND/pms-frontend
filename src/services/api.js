@@ -2,7 +2,9 @@ import axios from 'axios';
 
 // Create Axios instance
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api' // If using cookies
+  baseURL: process.env.NODE_ENV === 'production' 
+    ? 'https://lol-ijabdk6qs-rajat-kashyaps-projects.vercel.app/api'
+    : 'http://localhost:5000/api'
 });
 
 // Add Authorization token to each request if available
